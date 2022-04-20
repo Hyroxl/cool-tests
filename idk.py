@@ -1,4 +1,3 @@
-
 app.background = 'black'
 app.stepsPerSecond = 100
 target = Circle(0, 0, 30, fill='white')
