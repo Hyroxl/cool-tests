@@ -1,1 +1,2 @@
-just copy it and than put it into cmu cs academy
+# Aiming
+just copy it and than put it into CMU graphics
