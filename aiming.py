@@ -9,23 +9,27 @@ def crosshair(color):
     Line(180, 200, 220, 200, opacity=70, fill=color)
     Line(200, 180, 200, 220, opacity=70, fill=color)
 crosshair('red')
-missorhit = Label('miss', 200, 50, size=50, fill='blue', visible=False)
+missorhit = Label('null', 200, 50, size=50, fill='blue', visible=False)
 score = Label(0, 10, 10, size=25, fill='blue')
 mouse = Circle(0, 0, 1, visible=False)
 timer = 0
 winloss = "null"
+mx = 0
+my = 0
 def onStep():
     global timer
     timer+=1
-    if (timer>=100):
+    print('X =',mx,'Y =',my,'time =',timer,'hit or miss? =',missorhit.value)
+    if (timer>=150):
         if (score.value < 0):
             missorhit.visible = True
             missorhit.value = 'You Lost'
             winloss = "loss"
             app.stop()
             print(winloss)
-    print(timer)
 def onMouseMove(mouseX, mouseY):
+    mx = mouseX
+    my = mouseY
     mouse.centerX = mouseX
     mouse.centerY = mouseY
     target.centerX = 400-mouseX
@@ -54,12 +58,10 @@ def onMousePress(mouseX, mouseY):
         targetline2.border = 'white'
         missorhit.visible = True
         missorhit.value = 'Hit'
-        print("hit")
         score.value += 1
     else:
             missorhit.visible = True
             missorhit.value = 'Miss'
-            print("miss")
             score.value -= 1
     if (score.value >= 10):
         missorhit.visible = True
@@ -74,10 +76,12 @@ def onMouseRelease(mouseX, mouseY):
     targetline2.border = 'red'
     if (score.value < 10):
         missorhit.visible = False
+        missorhit.value = "null"
     else:
         missorhit.visible = True
     if (score.value == 10):
         score.value -= 10
     if (score.value <= 10):
         missorhit.visible = False
+        missorhit.value = "null"
 cmu_graphics.run()
