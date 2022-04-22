@@ -28,6 +28,8 @@ def onStep():
             app.stop()
             print(winloss)
 def onMouseMove(mouseX, mouseY):
+    global mx
+    global my
     mx = mouseX
     my = mouseY
     mouse.centerX = mouseX
