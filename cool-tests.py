@@ -239,4 +239,8 @@ if (response == '3'):
         if (spam==5):
             eggs.value = 'STOP NOW'
             eggs.size = 50
+        if (spam==6):
+            eggs.value = 'I WARNED YOU'
+        if (spam==7):
+            app.stop()
 cmu_graphics.run()
